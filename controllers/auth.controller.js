@@ -40,7 +40,7 @@ async function registerUser(req, res) {
 
     const token = jwt.sign(
       { userId: user._id, role: user.role },
-      "your_jwt_secret"
+      process.env.JWT_SECRET
     );
     res.status(201).json({ token, userId: user._id });
   } catch (error) {
